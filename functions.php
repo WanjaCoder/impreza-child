@@ -1,4 +1,26 @@
 <?php
+if (!function_exists('tw_child_page_url')) {
+    /**
+     * Return permalink for the first existing page path from the provided list.
+     */
+    function tw_child_page_url(array $slugs, string $fallback = '#'): string
+    {
+        foreach ($slugs as $slug) {
+            $page = get_page_by_path($slug);
+            if (!$page || empty($page->ID)) {
+                continue;
+            }
+
+            $url = get_permalink($page->ID);
+            if (!empty($url)) {
+                return $url;
+            }
+        }
+
+        return $fallback;
+    }
+}
+
 function impresa_child_assets() {
 
     wp_enqueue_style(
