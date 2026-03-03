@@ -1,5 +1,752 @@
-/* Custom styles */
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;700;800&family=Open+Sans:wght@400;600;700&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css");
+
+:root {
+    --tw-blue-900: #0b2240;
+    --tw-blue-800: #103766;
+    --tw-blue-700: #194d84;
+    --tw-orange: #ef9f2f;
+    --tw-orange-hover: #dd8e1f;
+    --tw-paper: #f4f0e7;
+    --tw-light: #f6f7f9;
+    --tw-border: #d9dee5;
+    --tw-text: #1f2a38;
+    --tw-muted: #5c6675;
+    --tw-shadow: 0 14px 35px rgba(12, 28, 53, 0.18);
+    --tw-font-head: "Roboto Condensed", "Arial Narrow", Arial, sans-serif;
+    --tw-font-body: "Open Sans", Arial, sans-serif;
+}
 
 body {
     background: #ffffff;
+}
+
+.tw-home,
+.tw-home * {
+    box-sizing: border-box;
+}
+
+.tw-home {
+    background: var(--tw-light);
+    color: var(--tw-text);
+    font-family: var(--tw-font-body);
+    line-height: 1.45;
+}
+
+.tw-home a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.tw-container {
+    margin: 0 auto;
+    width: min(1160px, calc(100% - 40px));
+}
+
+.tw-btn {
+    align-items: center;
+    border: 0;
+    border-radius: 4px;
+    display: inline-flex;
+    font-family: var(--tw-font-head);
+    font-size: 1rem;
+    font-weight: 700;
+    gap: 10px;
+    justify-content: center;
+    letter-spacing: 0.01em;
+    min-height: 50px;
+    padding: 0 28px;
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.tw-btn:hover {
+    transform: translateY(-2px);
+}
+
+.tw-btn--small {
+    min-height: 44px;
+    padding: 0 20px;
+}
+
+.tw-btn--orange {
+    background: var(--tw-orange);
+    color: #fff;
+}
+
+.tw-btn--orange:hover {
+    background: var(--tw-orange-hover);
+}
+
+.tw-btn--blue {
+    background: var(--tw-blue-800);
+    color: #fff;
+}
+
+.tw-btn--blue:hover {
+    background: var(--tw-blue-700);
+}
+
+.tw-btn--outline {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    color: #fff;
+}
+
+.tw-btn--outline:hover {
+    border-color: #fff;
+    color: #fff;
+}
+
+.tw-top {
+    background: #fff;
+    border-bottom: 1px solid var(--tw-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.tw-top.tw-top--scrolled {
+    box-shadow: 0 10px 25px rgba(11, 34, 64, 0.15);
+}
+
+.tw-top-inner {
+    align-items: center;
+    display: flex;
+    gap: 20px;
+    min-height: 86px;
+}
+
+.tw-brand {
+    align-items: center;
+    display: inline-flex;
+    font-family: var(--tw-font-head);
+    font-size: 2.35rem;
+    font-weight: 800;
+    gap: 10px;
+    letter-spacing: 0.01em;
+}
+
+.tw-brand-icon {
+    align-items: center;
+    background: var(--tw-blue-700);
+    border-radius: 8px;
+    color: #fff;
+    display: inline-flex;
+    height: 42px;
+    justify-content: center;
+    width: 42px;
+}
+
+.tw-nav {
+    display: flex;
+    font-family: var(--tw-font-head);
+    font-size: 1.05rem;
+    gap: 28px;
+    margin-left: auto;
+}
+
+.tw-nav a {
+    color: #29384d;
+    font-weight: 600;
+    position: relative;
+}
+
+.tw-nav a::after {
+    background: var(--tw-orange);
+    bottom: -7px;
+    content: "";
+    height: 2px;
+    left: 0;
+    position: absolute;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.25s ease;
+    width: 100%;
+}
+
+.tw-nav a:hover::after {
+    transform: scaleX(1);
+}
+
+.tw-nav-toggle {
+    background: transparent;
+    border: 0;
+    color: var(--tw-blue-900);
+    cursor: pointer;
+    display: none;
+    font-size: 1.6rem;
+    margin-left: auto;
+    padding: 8px;
+}
+
+.tw-hero {
+    background-image: linear-gradient(95deg, rgba(8, 28, 52, 0.9) 0%, rgba(8, 28, 52, 0.64) 44%, rgba(8, 28, 52, 0.35) 100%), url("https://images.pexels.com/photos/32641537/pexels-photo-32641537.jpeg?auto=compress&cs=tinysrgb&w=2000");
+    background-position: center center;
+    background-size: cover;
+    color: #fff;
+    min-height: 560px;
+    padding: 110px 0 85px;
+}
+
+.tw-hero-content {
+    max-width: 660px;
+}
+
+.tw-hero h1 {
+    font-family: var(--tw-font-head);
+    font-size: clamp(2rem, 4vw, 3.55rem);
+    line-height: 1.07;
+    margin: 0;
+    text-wrap: balance;
+}
+
+.tw-hero p {
+    font-size: clamp(1rem, 2vw, 1.35rem);
+    margin: 24px 0 34px;
+    max-width: 600px;
+}
+
+.tw-actions {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.tw-benefits {
+    background: var(--tw-paper);
+    border-bottom: 1px solid #ddd2c0;
+    border-top: 1px solid #ddd2c0;
+}
+
+.tw-benefit-list {
+    display: grid;
+    gap: 14px 38px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    list-style: none;
+    margin: 0;
+    padding: 26px 0;
+}
+
+.tw-benefit-list li {
+    align-items: flex-start;
+    color: #29364c;
+    display: flex;
+    font-family: var(--tw-font-head);
+    font-size: 1.33rem;
+    font-weight: 600;
+    gap: 12px;
+}
+
+.tw-benefit-list i {
+    color: var(--tw-orange);
+    margin-top: 5px;
+}
+
+.tw-logos {
+    background: #fff;
+    border-bottom: 1px solid var(--tw-border);
+    padding: 24px 0;
+}
+
+.tw-logos-row {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.tw-logo-item {
+    align-items: center;
+    color: #314963;
+    display: inline-flex;
+    font-family: var(--tw-font-head);
+    font-size: 1.7rem;
+    font-weight: 700;
+    gap: 10px;
+    justify-content: center;
+}
+
+.tw-logo-item i {
+    color: var(--tw-blue-700);
+}
+
+.tw-services {
+    padding: 42px 0;
+}
+
+.tw-services-grid {
+    display: grid;
+    gap: 26px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.tw-service-card {
+    background-image: var(--card-bg);
+    background-position: center;
+    background-size: cover;
+    border-radius: 12px;
+    min-height: 370px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: var(--tw-shadow);
+}
+
+.tw-service-card::before {
+    background: linear-gradient(105deg, rgba(12, 36, 68, 0.96) 0%, rgba(12, 36, 68, 0.66) 48%, rgba(12, 36, 68, 0.3) 100%);
+    content: "";
+    inset: 0;
+    position: absolute;
+}
+
+.tw-service-overlay {
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    padding: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.tw-service-overlay h3 {
+    font-family: var(--tw-font-head);
+    font-size: clamp(1.9rem, 2.4vw, 2.5rem);
+    line-height: 1.05;
+    margin: 0;
+}
+
+.tw-service-overlay ul {
+    list-style: none;
+    margin: 20px 0;
+    padding: 0;
+}
+
+.tw-service-overlay li {
+    align-items: flex-start;
+    display: flex;
+    font-size: 1.02rem;
+    gap: 10px;
+    margin-bottom: 11px;
+}
+
+.tw-service-overlay li i {
+    color: #f8bc5f;
+    margin-top: 3px;
+}
+
+.tw-process {
+    background: #fff;
+    padding: 58px 0 62px;
+}
+
+.tw-process h2 {
+    border-bottom: 1px solid var(--tw-border);
+    font-family: var(--tw-font-head);
+    font-size: clamp(2rem, 2.8vw, 3rem);
+    margin: 0 0 34px;
+    padding-bottom: 14px;
+    text-align: center;
+}
+
+.tw-steps {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.tw-step {
+    background: #f9fafb;
+    border: 1px solid var(--tw-border);
+    border-radius: 10px;
+    min-height: 174px;
+    padding: 20px;
+    position: relative;
+    text-align: center;
+}
+
+.tw-step:not(:last-child)::after {
+    color: #b9c4d3;
+    content: "\f054";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    right: -14px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.tw-step-num {
+    align-items: center;
+    background: var(--tw-orange);
+    border-radius: 999px;
+    color: #fff;
+    display: inline-flex;
+    font-family: var(--tw-font-head);
+    font-size: 1.1rem;
+    font-weight: 800;
+    height: 32px;
+    justify-content: center;
+    left: 14px;
+    position: absolute;
+    top: 14px;
+    width: 32px;
+}
+
+.tw-step-icon {
+    align-items: center;
+    background: #edf2f9;
+    border-radius: 999px;
+    color: var(--tw-blue-800);
+    display: inline-flex;
+    font-size: 1.45rem;
+    height: 62px;
+    justify-content: center;
+    margin-bottom: 16px;
+    width: 62px;
+}
+
+.tw-step p {
+    color: #26364d;
+    font-family: var(--tw-font-head);
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.tw-references {
+    background-image: linear-gradient(115deg, rgba(10, 31, 60, 0.95) 0%, rgba(10, 31, 60, 0.9) 100%), url("https://images.pexels.com/photos/32641537/pexels-photo-32641537.jpeg?auto=compress&cs=tinysrgb&w=1600");
+    background-position: center;
+    background-size: cover;
+    color: #fff;
+    padding: 58px 0 0;
+}
+
+.tw-references h2 {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    font-family: var(--tw-font-head);
+    font-size: clamp(2rem, 2.8vw, 3rem);
+    margin: 0 0 28px;
+    padding-bottom: 14px;
+    text-align: center;
+}
+
+.tw-reference-grid {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.tw-reference-card {
+    background: #fff;
+    border-radius: 10px;
+    color: var(--tw-text);
+    overflow: hidden;
+    box-shadow: var(--tw-shadow);
+}
+
+.tw-reference-card img {
+    display: block;
+    height: 230px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.tw-reference-body {
+    padding: 18px 22px 20px;
+}
+
+.tw-reference-body h3 {
+    font-family: var(--tw-font-head);
+    font-size: 2rem;
+    line-height: 1.1;
+    margin: 0 0 8px;
+}
+
+.tw-reference-body p {
+    color: #3b4657;
+    font-size: 1.05rem;
+    margin: 0;
+}
+
+.tw-reference-body strong {
+    color: var(--tw-orange);
+}
+
+.tw-more-projects {
+    color: #f2f4f8;
+    display: inline-flex;
+    float: right;
+    font-family: var(--tw-font-head);
+    font-size: 1rem;
+    font-weight: 600;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.tw-dark-cta {
+    clear: both;
+    margin-top: 74px;
+    padding: 34px 20px 50px;
+    text-align: center;
+}
+
+.tw-dark-cta h3 {
+    font-family: var(--tw-font-head);
+    font-size: clamp(2.2rem, 3.2vw, 3.4rem);
+    line-height: 1.1;
+    margin: 0 0 20px;
+}
+
+.tw-partner {
+    background: #f8f9fb;
+    padding: 56px 0;
+}
+
+.tw-partner h2 {
+    border-bottom: 1px solid var(--tw-border);
+    font-family: var(--tw-font-head);
+    font-size: clamp(2rem, 2.8vw, 3rem);
+    margin: 0 0 26px;
+    padding-bottom: 14px;
+    text-align: center;
+}
+
+.tw-partner-grid {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: 1.1fr 1fr;
+}
+
+.tw-partner-list {
+    background: #fff;
+    border: 1px solid var(--tw-border);
+    border-radius: 10px;
+    list-style: none;
+    margin: 0;
+    padding: 24px;
+}
+
+.tw-partner-list li {
+    align-items: flex-start;
+    display: flex;
+    font-family: var(--tw-font-head);
+    font-size: 1.18rem;
+    font-weight: 600;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.tw-partner-list li:last-child {
+    margin-bottom: 0;
+}
+
+.tw-partner-list i {
+    color: var(--tw-orange);
+    margin-top: 4px;
+}
+
+.tw-contact-actions {
+    align-content: start;
+    display: grid;
+    gap: 12px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.tw-contact-actions .tw-btn {
+    width: 100%;
+}
+
+.tw-contact-actions p {
+    align-items: center;
+    background: #fff;
+    border: 1px solid var(--tw-border);
+    border-radius: 8px;
+    color: #2f3f56;
+    display: flex;
+    font-family: var(--tw-font-head);
+    font-size: 1.16rem;
+    font-weight: 600;
+    gap: 10px;
+    margin: 0;
+    min-height: 58px;
+    padding: 0 18px;
+}
+
+.tw-contact-actions p i {
+    color: var(--tw-blue-700);
+}
+
+.tw-footer {
+    background: #0f2f57;
+    color: #fff;
+    padding: 28px 0 24px;
+}
+
+.tw-footer p {
+    font-family: var(--tw-font-head);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0;
+    text-align: center;
+}
+
+.tw-footer-links {
+    display: flex;
+    gap: 22px;
+    justify-content: center;
+    margin-top: 14px;
+}
+
+.tw-footer-links a {
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 0.95rem;
+}
+
+.tw-footer-links a:hover {
+    color: #fff;
+}
+
+[data-animate] {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+[data-animate].tw-in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 1120px) {
+    .tw-brand {
+        font-size: 2rem;
+    }
+
+    .tw-nav {
+        gap: 20px;
+    }
+
+    .tw-logo-item {
+        font-size: 1.38rem;
+    }
+
+    .tw-reference-body h3 {
+        font-size: 1.65rem;
+    }
+}
+
+@media (max-width: 980px) {
+    .tw-top-inner {
+        flex-wrap: wrap;
+        min-height: 74px;
+        padding: 10px 0;
+    }
+
+    .tw-btn--desktop {
+        display: none;
+    }
+
+    .tw-nav-toggle {
+        display: inline-flex;
+    }
+
+    .tw-nav {
+        background: #fff;
+        border-top: 1px solid var(--tw-border);
+        display: none;
+        flex-direction: column;
+        gap: 12px;
+        left: 0;
+        margin: 0;
+        padding: 16px 20px;
+        position: absolute;
+        right: 0;
+        top: 100%;
+    }
+
+    .tw-nav-open .tw-nav {
+        display: flex;
+    }
+
+    .tw-benefit-list,
+    .tw-logos-row,
+    .tw-services-grid,
+    .tw-reference-grid,
+    .tw-partner-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tw-steps {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .tw-step:not(:last-child)::after {
+        display: none;
+    }
+}
+
+@media (max-width: 720px) {
+    .tw-container {
+        width: min(1160px, calc(100% - 28px));
+    }
+
+    .tw-hero {
+        min-height: 500px;
+        padding: 82px 0 58px;
+    }
+
+    .tw-benefit-list {
+        grid-template-columns: 1fr;
+        padding: 22px 0;
+    }
+
+    .tw-benefit-list li {
+        font-size: 1.15rem;
+    }
+
+    .tw-logo-item {
+        justify-content: flex-start;
+    }
+
+    .tw-step {
+        min-height: 158px;
+    }
+
+    .tw-contact-actions {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 560px) {
+    .tw-brand {
+        font-size: 1.65rem;
+    }
+
+    .tw-brand-icon {
+        height: 36px;
+        width: 36px;
+    }
+
+    .tw-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .tw-actions .tw-btn,
+    .tw-dark-cta .tw-btn {
+        width: 100%;
+    }
+
+    .tw-steps {
+        grid-template-columns: 1fr;
+    }
+
+    .tw-reference-card img {
+        height: 200px;
+    }
+
+    .tw-footer p {
+        font-size: 1rem;
+    }
 }
